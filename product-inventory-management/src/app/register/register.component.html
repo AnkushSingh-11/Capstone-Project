@@ -1,0 +1,46 @@
+<div class="register-container">
+  <h2>Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
+    <div *ngIf="submitted && f['email'].errors">
+      <small *ngIf="f['email'].errors?.['required']">Email is required</small>
+      <small *ngIf="f['email'].errors?.['email']">Invalid email format</small>
+    </div>
+
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+    <div *ngIf="submitted && f['password'].errors">
+      <small *ngIf="f['password'].errors?.['required']">Password is required</small>
+      <small *ngIf="f['password'].errors?.['minlength']">Minimum 6 characters required</small>
+    </div>
+
+    <label>First Name:</label>
+    <input type="text" formControlName="firstName" />
+    <div *ngIf="submitted && f['firstName'].errors">
+      <small *ngIf="f['firstName'].errors?.['required']">First Name is required</small>
+    </div>
+
+    <label>Last Name:</label>
+    <input type="text" formControlName="lastName" />
+    <div *ngIf="submitted && f['lastName'].errors">
+      <small *ngIf="f['lastName'].errors?.['required']">Last Name is required</small>
+    </div>
+
+    <label>Location:</label>
+    <input type="text" formControlName="location" />
+    <div *ngIf="submitted && f['location'].errors">
+      <small *ngIf="f['location'].errors?.['required']">Location is required</small>
+    </div>
+
+    <label>Mobile No:</label>
+    <input type="text" formControlName="mobileNo" />
+    <div *ngIf="submitted && f['mobileNo'].errors">
+      <small *ngIf="f['mobileNo'].errors?.['required']">Mobile Number is required</small>
+      <small *ngIf="f['mobileNo'].errors?.['pattern']">Enter a valid 10-digit number</small>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+</div>
